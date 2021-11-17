@@ -40,6 +40,7 @@ const server = new ApolloServer({
 //require middleware
 server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public')); 
 app.use(express.json());
 
 // if we're in production, serve client/build as static assets
