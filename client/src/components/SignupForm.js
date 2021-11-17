@@ -13,12 +13,12 @@ const SignupForm = () => {
   const [addUser, { error }] = useMutation(ADD_USER); 
 
   useEffect(() => {
-    if (err) {
+    if (error) {
       setShowAlert(true); 
     } else {
       setShowAlert(false); 
     }
-  }, [err]); 
+  }, [error]); 
 
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
