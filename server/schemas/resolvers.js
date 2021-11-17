@@ -5,7 +5,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     //find 1 user by ID
-    user: async (parent, args, context) => {
+    me: async (parent, args, context) => {
       if(context.user) {
       const data = await User.findOne({ _id: context.user._id });
       return data; 
@@ -55,7 +55,7 @@ const resolvers = {
     },
 
     //Delete a book by Book Id
-    deleteBook: async (parent, { bookId }, context) => {
+    removeBook: async (parent, { bookId }, context) => {
       if(context.user) {
         const updatedUser = await User.findOneAndUpdate(
           {_id: context.user._id}, 
